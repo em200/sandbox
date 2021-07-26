@@ -1,0 +1,19 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	background: black;
+	padding: 1em 2em;
+}
+.navbar-button {
+	padding-right: 2em;
+	min-width: 50px;
+	font-weight: 700;
+}
+.navbar-button a {
+	color: white;
+	text-decoration: none;
+}
+
+.navbar-button a:hover {
+	font-weight: 700;
+}
