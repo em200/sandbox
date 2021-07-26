@@ -4,6 +4,7 @@ import Home from './pages/home';
 import Two from './pages/two';
 import Three from './pages/three';
 import './App.css';
+import moment from 'moment';
 
 export default function App() {
 	return (
@@ -43,8 +44,16 @@ export default function App() {
 					</Switch>
 				</div>
 			</div>
-			<footer style={{ padding: '2em', background: 'black', color: 'white' }}>
-				footer
+			<footer
+				style={{
+					fontSize: '0.8em',
+					textAlign: 'center',
+					padding: '2em',
+					background: 'black',
+					color: 'white',
+				}}
+			>
+				&copy; Copyright {moment().format('YYYY')}
 			</footer>
 		</Router>
 	);
