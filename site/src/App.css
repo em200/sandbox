@@ -17,3 +17,32 @@
 .navbar-button a:hover {
 	font-weight: 700;
 }
+
+button {
+	padding: 1em 2em;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	background: #639fdb;
+	font-weight: 600;
+}
+button:disabled {
+	background: gray;
+	color: white;
+	cursor: default;
+}
+
+button.green {
+	background: green;
+	color: white;
+}
+
+.container {
+	padding: 2em;
+}
+
+@media only screen and (min-width: 768px) {
+	.container {
+		padding: 2em 10em;
+	}
+}

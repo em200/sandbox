@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './pages/home';
-import Two from './pages/two';
-import Three from './pages/three';
+import About from './pages/about';
+import Contact from './pages/contact';
 import './App.css';
 import moment from 'moment';
 
@@ -23,20 +23,23 @@ export default function App() {
 						</Link>
 					</div>
 					<div className="navbar-button">
-						<Link to="/two">2</Link>
+						<Link to="/">Home</Link>
+					</div>
+					<div className="navbar-button">
+						<Link to="/about">About</Link>
 					</div>
 
 					<div className="navbar-button">
-						<Link to="/three">3</Link>
+						<Link to="/contact">Contact</Link>
 					</div>
 				</nav>
-				<div style={{ background: '#f9f9f9', minHeight: '30vh' }}>
+				<div style={{ minHeight: '30vh' }}>
 					<Switch>
-						<Route path="/two">
-							<Two />
+						<Route path="/about">
+							<About />
 						</Route>
-						<Route path="/three">
-							<Three />
+						<Route path="/contact">
+							<Contact />
 						</Route>
 						<Route path="/">
 							<Home />
