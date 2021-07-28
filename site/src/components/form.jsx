@@ -25,14 +25,14 @@ class Form extends Component {
 	render() {
 		return (
 			<form>
-				<label htmlFor="email">Email address</label>
+				<label htmlFor="name">Name</label>
 				{/* @TODO: Validate email is put in */}
 				<input
 					type="text"
 					value={this.state.value}
-					id="fname"
-					name="firstname"
-					placeholder="Enter your email address"
+					id="name"
+					name="name"
+					placeholder="Enter your name"
 					onChange={this.onChange}
 				/>
 				{/* @TODO: enabled if valid email only */}

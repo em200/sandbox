@@ -18,6 +18,9 @@
 	font-weight: 700;
 }
 
+.navbar-tab {
+	padding: 1em 0;
+}
 button {
 	padding: 1em 2em;
 	border: none;
@@ -25,6 +28,9 @@ button {
 	cursor: pointer;
 	background: #639fdb;
 	font-weight: 600;
+	color: #f9f9f9;
+	width: 100%;
+	margin-bottom: 2em;
 }
 button:disabled {
 	background: gray;

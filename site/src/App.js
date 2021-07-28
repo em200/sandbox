@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './pages/home';
 import About from './pages/about';
+import Weather from './pages/weather';
+import ColorPicker from './pages/color-picker';
 import Contact from './pages/contact';
 import './App.css';
 import moment from 'moment';
@@ -23,14 +25,30 @@ export default function App() {
 						</Link>
 					</div>
 					<div className="navbar-button">
-						<Link to="/">Home</Link>
+						<Link to="/">
+							<div className="navbar-tab">Home</div>
+						</Link>
 					</div>
 					<div className="navbar-button">
-						<Link to="/about">About</Link>
+						<Link to="/about">
+							<div className="navbar-tab">About</div>
+						</Link>
 					</div>
 
 					<div className="navbar-button">
-						<Link to="/contact">Contact</Link>
+						<Link to="/contact">
+							<div className="navbar-tab">Contact</div>
+						</Link>
+					</div>
+					<div className="navbar-button">
+						<Link to="/color-picker">
+							<div className="navbar-tab">Color Picker</div>
+						</Link>
+					</div>
+					<div className="navbar-button">
+						<Link to="/weather">
+							<div className="navbar-tab">Weather</div>
+						</Link>
 					</div>
 				</nav>
 				<div style={{ minHeight: '30vh' }}>
@@ -38,8 +56,14 @@ export default function App() {
 						<Route path="/about">
 							<About />
 						</Route>
+						<Route path="/color-picker">
+							<ColorPicker />
+						</Route>
 						<Route path="/contact">
 							<Contact />
+						</Route>
+						<Route path="/weather">
+							<Weather />
 						</Route>
 						<Route path="/">
 							<Home />

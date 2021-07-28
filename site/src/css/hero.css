@@ -1,6 +1,10 @@
 .hero {
-	color: white;
 	text-align: center;
+}
+
+.hero p,
+.hero h1 {
+	color: #f9f9f9;
 }
 
 @media only screen and (min-width: 768px) {

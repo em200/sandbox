@@ -6,6 +6,7 @@ const Home = () => {
 	return (
 		<div>
 			<Hero title="Home" />
+
 			<Container>content home</Container>
 		</div>
 	);

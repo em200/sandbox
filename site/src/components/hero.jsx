@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from './container';
+import Button from './button';
 import '../css/hero.css';
 import '../App.css';
 
@@ -11,9 +12,9 @@ const HeroContent = ({ title, description, ctaHref, cta }) => {
 				{description ? <p>{description}</p> : ''}
 				{ctaHref ? (
 					<div style={{ paddingTop: '1em' }}>
-						<a href={ctaHref}>
-							<button>{cta}</button>
-						</a>
+						<Button centered link={ctaHref}>
+							{cta}
+						</Button>
 					</div>
 				) : (
 					''
@@ -23,7 +24,14 @@ const HeroContent = ({ title, description, ctaHref, cta }) => {
 	);
 };
 
-const Hero = ({ title, description, cta, ctaHref, backgroundImage }) => {
+const Hero = ({
+	title,
+	description,
+	cta,
+	ctaHref,
+	backgroundImage,
+	backgroundColor,
+}) => {
 	return (
 		<>
 			{backgroundImage ? (
@@ -46,7 +54,7 @@ const Hero = ({ title, description, cta, ctaHref, backgroundImage }) => {
 					</div>
 				</div>
 			) : (
-				<div className="hero" style={{ background: '#e15989' }}>
+				<div className="hero" style={{ background: backgroundColor || '#e15989' }}>
 					<HeroContent
 						title={title}
 						description={description}
