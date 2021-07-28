@@ -1,0 +1,6 @@
+.centered {
+	margin: 0 auto 2em auto;
+}
+
+@media only screen and (min-width: 768px) {
+}

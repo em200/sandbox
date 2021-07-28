@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/hero';
 import Form from '../components/form';
 import Container from '../components/container';
+import Button from '../components/button';
 import TextImage from '../components/text-image.jsx';
 
 const Contact = () => {
@@ -30,7 +31,8 @@ const Contact = () => {
 					paragraph={paragraph1}
 					image="https://picsum.photos/200"
 				/>
-
+				<Button centered>Centered</Button>
+				<Button>Not centered</Button>
 				<TextImage
 					layout="textImage"
 					paragraph={paragraph1}
@@ -41,7 +43,9 @@ const Contact = () => {
 			<Container background="#f9f9f9">
 				<div id="link">
 					<h2>Get in contact now</h2>
-					<Form />
+					<div style={{ width: '400px' }}>
+						<Form />
+					</div>
 				</div>
 			</Container>
 		</div>
