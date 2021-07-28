@@ -2,7 +2,7 @@
 	background-image: url('https://images.alphacoders.com/114/thumb-1920-11433.jpg');
 	background-size: cover;
 	background-position: center;
-	transition: 1 ease-out;
+	transition: 0.5s ease-out;
 	height: calc(100vh - 151px);
 }
 
