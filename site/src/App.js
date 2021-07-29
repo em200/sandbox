@@ -5,6 +5,7 @@ import About from './pages/about';
 import Weather from './pages/weather';
 import ColorPicker from './pages/color-picker';
 import Contact from './pages/contact';
+import Calculator from './pages/calculator';
 import './App.css';
 import moment from 'moment';
 
@@ -50,6 +51,11 @@ export default function App() {
 							<div className="navbar-tab">Weather</div>
 						</Link>
 					</div>
+					<div className="navbar-button">
+						<Link to="/calculator">
+							<div className="navbar-tab">Calculator</div>
+						</Link>
+					</div>
 				</nav>
 				<div style={{ minHeight: '30vh' }}>
 					<Switch>
@@ -64,6 +70,9 @@ export default function App() {
 						</Route>
 						<Route path="/weather">
 							<Weather />
+						</Route>
+						<Route path="/calculator">
+							<Calculator />
 						</Route>
 						<Route path="/">
 							<Home />
