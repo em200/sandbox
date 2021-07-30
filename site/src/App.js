@@ -1,7 +1,4 @@
 import React, { useState, useRef } from 'react';
-import Chevron from './components/chevron';
-
-import './css/accordion.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import moment from 'moment';
 
@@ -11,6 +8,8 @@ import Contact from './pages/contact';
 import ColorPicker from './pages/color-picker';
 import Weather from './pages/weather';
 import Calculator from './pages/calculator';
+
+import Chevron from './components/chevron';
 
 import './App.css';
 
@@ -42,27 +41,25 @@ function DesktopNav({ tabs }) {
 function MobileNav({ tabs }) {
 	const [setActive, setActiveState] = useState('');
 	const [setHeight, setHeightState] = useState('0px');
-	const [setRotate, setRotateState] = useState('accordion__icon');
+	const [setRotate, setRotateState] = useState('navbar-icon');
 
 	const content = useRef(null);
 
-	function toggleAccordion() {
+	function toggle() {
 		setActiveState(setActive === '' ? 'active' : '');
 		setHeightState(
 			setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`
 		);
-		setRotateState(
-			setActive === 'active' ? 'accordion__icon' : 'accordion__icon rotate'
-		);
+		setRotateState(setActive === 'active' ? 'navbar-icon' : 'navbar-icon rotate');
 	}
 	return (
 		<div className="nav-mobile">
 			<div
 				style={{ width: '100%', display: 'flex', color: 'white' }}
-				className={`nav ${setActive}`}
+				className={setActive}
 			>
-				<div style={{ flex: '1' }} onClick={toggleAccordion}>
-					<Chevron className={`${setRotate}`} width={10} fill={'#777'} />
+				<div style={{ flex: '1', cursor: 'pointer' }} onClick={toggle}>
+					<Chevron className={setRotate} width={10} fill={'#777'} />
 				</div>
 				<div style={{ flex: '1', textAlign: 'center' }}>
 					<Logo width="25" height="25" />
@@ -72,9 +69,9 @@ function MobileNav({ tabs }) {
 			<div
 				ref={content}
 				style={{ maxHeight: `${setHeight}` }}
-				className="accordion__content"
+				className="navbar-content"
 			>
-				<div className="accordion__text" onClick={toggleAccordion}>
+				<div onClick={toggle}>
 					<Tabs tabs={tabs} />
 				</div>
 			</div>

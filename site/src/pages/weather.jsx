@@ -1,8 +1,8 @@
+import moment from 'moment';
 import React, { useState } from 'react';
 import '../css/weather.css';
 
 const api = {
-	// key: '7d4ef5d23648c7c62acd3ccfa1a0a30b',
 	key: 'ae153e9619cd396cdda5840c30999bf3',
 	base: 'https://api.openweathermap.org/data/2.5/',
 };
@@ -21,37 +21,6 @@ function Weather() {
 					console.log(result);
 				});
 		}
-	};
-	const dateBuilder = (d) => {
-		let months = [
-			'January',
-			'February',
-			'March',
-			'April',
-			'May',
-			'June',
-			'July',
-			'August',
-			'September',
-			'October',
-			'November',
-			'December',
-		];
-		let days = [
-			'Sunday',
-			'Monday',
-			'Tuesday',
-			'Wednesday',
-			'Thursday',
-			'Friday',
-			'Saturday',
-		];
-		let day = days[d.getDay()];
-		let date = d.getDate();
-		let month = months[d.getMonth()];
-		let year = d.getFullYear();
-
-		return `${day} ${month} ${date}, ${year}`;
 	};
 
 	return (
@@ -79,7 +48,7 @@ function Weather() {
 							<div className="location">
 								{weather.name}, {weather.sys.country}
 							</div>
-							<div className="date">{dateBuilder(new Date())}</div>
+							<div className="date">{moment().format('dddd MMMM Do, YYYY')}</div>
 						</div>
 						<div className="weather-box">
 							<div className="temp">
