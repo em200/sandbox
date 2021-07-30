@@ -7,8 +7,7 @@ const Calculator = () => {
 	return (
 		<div>
 			<Hero title="Calculator" />
-
-			<Container></Container>
+			<Container>wip</Container>
 		</div>
 	);
 };
