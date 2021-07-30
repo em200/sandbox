@@ -1,0 +1,17 @@
+.nav {
+	background-color: black;
+}
+
+.accordion__icon {
+	transition: transform 0.6s ease;
+}
+
+.rotate {
+	transform: rotate(90deg);
+}
+
+.accordion__content {
+	background-color: black;
+	overflow: hidden;
+	transition: max-height 0.6s ease;
+}

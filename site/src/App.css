@@ -1,9 +1,8 @@
 .navbar {
-	display: flex;
-	align-items: center;
 	background: black;
-	padding: 1em 2em;
+	padding: 1em;
 }
+
 .navbar-button {
 	padding-right: 2em;
 	min-width: 50px;
@@ -46,9 +45,21 @@ button.green {
 .container {
 	padding: 2em;
 }
-
+.nav-desktop {
+	display: none;
+}
 @media only screen and (min-width: 768px) {
 	.container {
 		padding: 2em 10em;
+	}
+	.nav-desktop {
+		display: flex;
+	}
+	.nav-mobile {
+		display: none;
+	}
+	.navbar-tabs {
+		display: flex;
+		margin-left: 2em;
 	}
 }

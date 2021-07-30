@@ -5,9 +5,9 @@ import Container from '../components/container';
 const Home = () => {
 	return (
 		<div>
-			<Hero title="Home" />
+			<Hero title="Sandbox Snippets" />
 
-			<Container>content home</Container>
+			<Container>(:</Container>
 		</div>
 	);
 };

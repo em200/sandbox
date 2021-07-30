@@ -40,7 +40,7 @@ const Contact = () => {
 				/>
 			</Container>
 
-			<Container background="#f9f9f9">
+			<Container background="#f1f1f1">
 				<div id="link">
 					<h2>Get in contact now</h2>
 					<div style={{ width: '400px' }}>

@@ -12,8 +12,11 @@
 .app.rain {
 	background-image: url('https://wallpaperaccess.com/full/777992.jpg');
 }
+.app.mist {
+	background-image: url('https://mocah.org/uploads/posts/5382230-forest-tree-mountain-mist-nature-fog-cloud-black-and-white-misty-monochrome-cloudy-dark-forest-soft-beauty-natural-night-black-amp-white-free-images.jpg');
+}
 .app.clear {
-	background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Clear_sky_over_Riga%2C_2008.jpg');
+	background-image: url('https://media.istockphoto.com/photos/clear-blue-sky-background-picture-id508544168?k=6&m=508544168&s=612x612&w=0&h=RyH8EQOHEQnn-WdJqjn3EpyW6a0ppCtW_iLHKSBXAlk=');
 }
 .search-box {
 	width: 100%;
