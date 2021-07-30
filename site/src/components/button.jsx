@@ -7,7 +7,10 @@ const Button = (props) => {
 
 	return (
 		<div style={{ width: '200px' }} className={centered ? 'centered' : ''}>
-			<button disabled={isDisabled}>{props.children}</button>
+			{/* add animation on ID scroll */}
+			<a href={props.link}>
+				<button disabled={isDisabled}>{props.children}</button>
+			</a>
 		</div>
 	);
 };

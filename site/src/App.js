@@ -1,85 +1,157 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import Chevron from './components/chevron';
+
+import './css/accordion.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Home from './pages/home';
-import About from './pages/about';
-import Weather from './pages/weather';
-import ColorPicker from './pages/color-picker';
-import Contact from './pages/contact';
-import Calculator from './pages/calculator';
-import './App.css';
 import moment from 'moment';
 
-export default function App() {
-	return (
-		<Router>
-			<div>
-				<nav className="navbar">
-					<div>
-						<Link to="/">
-							<img
-								style={{ marginRight: '2em', borderRadius: '100px' }}
-								src="https://cdn.dribbble.com/users/31864/screenshots/3666062/free_logos_dribbble_ph.jpg"
-								width="50"
-								height="50"
-								alt="logo"
-							/>
-						</Link>
-					</div>
-					<div className="navbar-button">
-						<Link to="/">
-							<div className="navbar-tab">Home</div>
-						</Link>
-					</div>
-					<div className="navbar-button">
-						<Link to="/about">
-							<div className="navbar-tab">About</div>
-						</Link>
-					</div>
+import Home from './pages/home';
+import About from './pages/about';
+import Contact from './pages/contact';
+import ColorPicker from './pages/color-picker';
+import Weather from './pages/weather';
+import Calculator from './pages/calculator';
 
-					<div className="navbar-button">
-						<Link to="/contact">
-							<div className="navbar-tab">Contact</div>
-						</Link>
-					</div>
-					<div className="navbar-button">
-						<Link to="/color-picker">
-							<div className="navbar-tab">Color Picker</div>
-						</Link>
-					</div>
-					<div className="navbar-button">
-						<Link to="/weather">
-							<div className="navbar-tab">Weather</div>
-						</Link>
-					</div>
-					<div className="navbar-button">
-						<Link to="/calculator">
-							<div className="navbar-tab">Calculator</div>
-						</Link>
-					</div>
-				</nav>
-				<div style={{ minHeight: '30vh' }}>
-					<Switch>
-						<Route path="/about">
-							<About />
-						</Route>
-						<Route path="/color-picker">
-							<ColorPicker />
-						</Route>
-						<Route path="/contact">
-							<Contact />
-						</Route>
-						<Route path="/weather">
-							<Weather />
-						</Route>
-						<Route path="/calculator">
-							<Calculator />
-						</Route>
-						<Route path="/">
-							<Home />
-						</Route>
-					</Switch>
+import './App.css';
+
+function Logo({ width, height }) {
+	return (
+		<Link to="/">
+			<img
+				style={{
+					borderRadius: '100px',
+				}}
+				src="https://cdn.dribbble.com/users/31864/screenshots/3666062/free_logos_dribbble_ph.jpg"
+				width={width}
+				height={height}
+				alt="logo"
+			/>
+		</Link>
+	);
+}
+function DesktopNav({ tabs }) {
+	return (
+		<div className="nav-desktop">
+			<Logo width="50" height="50" />
+			<div className="navbar-tabs">
+				<Tabs tabs={tabs} />
+			</div>
+		</div>
+	);
+}
+function MobileNav({ tabs }) {
+	const [setActive, setActiveState] = useState('');
+	const [setHeight, setHeightState] = useState('0px');
+	const [setRotate, setRotateState] = useState('accordion__icon');
+
+	const content = useRef(null);
+
+	function toggleAccordion() {
+		setActiveState(setActive === '' ? 'active' : '');
+		setHeightState(
+			setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`
+		);
+		setRotateState(
+			setActive === 'active' ? 'accordion__icon' : 'accordion__icon rotate'
+		);
+	}
+	return (
+		<div className="nav-mobile">
+			<div
+				style={{ width: '100%', display: 'flex', color: 'white' }}
+				className={`nav ${setActive}`}
+			>
+				<div style={{ flex: '1' }} onClick={toggleAccordion}>
+					<Chevron className={`${setRotate}`} width={10} fill={'#777'} />
+				</div>
+				<div style={{ flex: '1', textAlign: 'center' }}>
+					<Logo width="25" height="25" />
+				</div>
+				<div style={{ flex: '1' }} />
+			</div>
+			<div
+				ref={content}
+				style={{ maxHeight: `${setHeight}` }}
+				className="accordion__content"
+			>
+				<div className="accordion__text" onClick={toggleAccordion}>
+					<Tabs tabs={tabs} />
 				</div>
 			</div>
+		</div>
+	);
+}
+function Tabs({ tabs }) {
+	return (
+		<>
+			{tabs.map((tab) => (
+				<div className="navbar-button" key={tab.url}>
+					<Link to={tab.url}>
+						<div className="navbar-tab">{tab.label}</div>
+					</Link>
+				</div>
+			))}
+		</>
+	);
+}
+
+export default function App() {
+	const tabs = [
+		{
+			url: '/',
+			label: 'Home',
+		},
+		{
+			url: '/about',
+			label: 'About',
+		},
+		{
+			url: '/contact',
+			label: 'Contact',
+		},
+		{
+			url: '/color-picker',
+			label: 'Color Picker',
+		},
+		{
+			url: '/weather',
+			label: 'Weather',
+		},
+		{
+			url: '/calculator',
+			label: 'Calculator',
+		},
+	];
+
+	return (
+		<Router>
+			<nav className="navbar">
+				<MobileNav tabs={tabs} />
+				<DesktopNav tabs={tabs} />
+			</nav>
+			<div style={{ minHeight: 'calc(100vh - 150px)' }}>
+				<Switch>
+					<Route path="/about">
+						<About />
+					</Route>
+					<Route path="/color-picker">
+						<ColorPicker />
+					</Route>
+					<Route path="/contact">
+						<Contact />
+					</Route>
+					<Route path="/weather">
+						<Weather />
+					</Route>
+					<Route path="/calculator">
+						<Calculator />
+					</Route>
+					<Route path="/">
+						<Home />
+					</Route>
+				</Switch>
+			</div>
+
 			<footer
 				style={{
 					fontSize: '0.8em',
