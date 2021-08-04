@@ -1,3 +1,33 @@
+.calc {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
+
+.calc-wrapper {
+	width: 400px;
+	height: 600px;
+}
+
+.row {
+	display: flex;
+	width: 100%;
+}
+
+.input {
+	height: 4em;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	font-weight: bold;
+	font-size: 1.4em;
+	background-color: #000;
+	color: #fff;
+	padding: 0.5em;
+	outline: 1px solid #888;
+}
 .button-wrapper {
 	height: 4em;
 	display: flex;
@@ -14,4 +44,17 @@
 .operator {
 	background-color: #fe9241;
 	color: #fff;
+}
+
+.clear-btn {
+	height: 4em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: lighter;
+	font-size: 1.4em;
+	background-color: #c5c3cd;
+	color: #000;
+	flex: 1;
+	outline: 1px solid #888;
 }
