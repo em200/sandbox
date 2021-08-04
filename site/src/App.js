@@ -7,7 +7,8 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import ColorPicker from './pages/color-picker';
 import Weather from './pages/weather';
-import Calculator from './pages/calculator';
+import Calc from './pages/calculator';
+import Rating from './pages/rating';
 
 import Chevron from './components/chevron';
 
@@ -118,6 +119,10 @@ export default function App() {
 			url: '/calculator',
 			label: 'Calculator',
 		},
+		{
+			url: '/rate-it',
+			label: 'Rating',
+		},
 	];
 
 	return (
@@ -141,7 +146,10 @@ export default function App() {
 						<Weather />
 					</Route>
 					<Route path="/calculator">
-						<Calculator />
+						<Calc />
+					</Route>
+					<Route path="/rate-it">
+						<Rating />
 					</Route>
 					<Route path="/">
 						<Home />

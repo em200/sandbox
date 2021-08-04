@@ -1,15 +1,16 @@
 import React from 'react';
 import Hero from '../components/hero';
 import Container from '../components/container';
+// import Calculator from './calculator';
 import '../css/calculator.css';
 
-const Calculator = () => {
+const Calc = () => {
 	return (
 		<div>
 			<Hero title="Calculator" />
-			<Container>wip</Container>
+			<Container>{/* <Calculator /> */}</Container>
 		</div>
 	);
 };
 
-export default Calculator;
+export default Calc;
